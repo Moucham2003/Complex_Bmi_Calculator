@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BMI and Body Health Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <h1>Body mass check</h1>
+    <p>Enter your height and weight to see your BMI, your body type, the health risks linked to it, and practical ways to improve.</p>
+  </header>
+
+  <div class="layout">
+    <form id="bmi-form" novalidate>
+      <div class="seg" role="radiogroup" aria-label="Units">
+        <label><input type="radio" name="unit" value="metric" checked><span>Metric (cm, kg)</span></label>
+        <label><input type="radio" name="unit" value="imperial"><span>Imperial (ft, lb)</span></label>
+      </div>
+
+      <div class="field" id="h-metric">
+        <label for="cm">Height (cm)</label>
+        <input id="cm" type="number" inputmode="decimal" step="0.1" placeholder="170">
+      </div>
+      <div class="field two" id="h-imperial" hidden>
+        <div><label for="ft">Height (ft)</label><input id="ft" type="number" inputmode="numeric" placeholder="5"></div>
+        <div><label for="in">Inches</label><input id="in" type="number" inputmode="decimal" step="0.1" placeholder="7"></div>
+      </div>
+
+      <div class="field">
+        <label for="wt" id="wt-label">Weight (kg)</label>
+        <input id="wt" type="number" inputmode="decimal" step="0.1" placeholder="68">
+      </div>
+
+      <fieldset>
+        <legend>Optional, for a more detailed result</legend>
+        <div class="two">
+          <div class="field"><label for="age">Age</label><input id="age" type="number" inputmode="numeric" placeholder="25"></div>
+          <div class="field"><label for="sex">Sex</label>
+            <select id="sex"><option value="">Not set</option><option value="m">Male</option><option value="f">Female</option></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="waist" id="waist-label">Waist (cm)</label>
+          <input id="waist" type="number" inputmode="decimal" step="0.1" placeholder="80">
+        </div>
+        <label class="check"><input type="checkbox" id="asian"><span>Use Asian cut-offs (healthy range 18.5 to 22.9)</span></label>
+      </fieldset>
+
+      <p id="error" role="alert" hidden></p>
+      <button type="submit">Calculate</button>
+    </form>
+
+    <section id="results" aria-live="polite" hidden></section>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
